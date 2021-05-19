@@ -1,0 +1,9 @@
+server:
+  port: 9999
+wx:
+  mp:
+    app-id: wxd4270c7f24a6f345
+    secret: 83269d80153ce65c47b5453b39da68d9
+    token: ssa
+    config-storage:
+      http-client-type: httpclient
