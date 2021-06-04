@@ -51,10 +51,13 @@ public class FrontCodeGenerate {
     }
 
     @RequestMapping("/generateCode")
-    public void generateCode(String tableName, String tableInfo, HttpServletResponse response) {
+    public void generateCode(String[] tableNames, String[] tableInfos, HttpServletResponse response) {
         String filePath = System.getProperty("user.dir") + File.separator + UUID.randomUUID();
         createFolder(filePath);
-        generateServerCode(tableName, tableInfo, filePath);
+        for (int i = 0; i < tableNames.length; i++) {
+            String tableName = tableNames[i];
+            generateServerCode(tableName, tableInfos[i], filePath);
+        }
         response.setContentType("application/zip");
         response.setHeader("Content-Disposition", "attachment; filename="+FORMATTER.format(LocalDateTime.now())+".zip");
         try {

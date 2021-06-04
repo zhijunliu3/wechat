@@ -15,7 +15,7 @@
     <!-- 表格区域 -->
     <ssa-table
       ref="table"
-      data="/pa/${obj.humpClassName}/query"
+      data="/${obj.humpClassName}/query"
       :columns="columns"
       :request="{method: 'POST', body: params, allInBody: true}"
     >
@@ -138,7 +138,7 @@ export default {
       })
     },
     clickDelete(row) {
-      this.$confirm(`此操作删除<#noparse>${</#noparse>row.seatLayout}?`, '提示', {
+      this.$confirm(`此操作删除<#noparse>${</#noparse>row.${obj.primaryKeys[0].name}}?`, '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
